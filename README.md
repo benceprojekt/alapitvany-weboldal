@@ -1,1 +1,1 @@
-# alapitvany-weboldal
+# Magyar-Sport-Sz-vets-g

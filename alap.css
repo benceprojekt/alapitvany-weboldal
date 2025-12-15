@@ -1,0 +1,1073 @@
+:root {
+    --fo-szin: #2E8B57;
+    --masodlagos-szin: #1E6B4E;
+    --kiemelo-szin: #FF6B35;
+    --vilagos-szin: #F8F9FA;
+    --sotet-szin: #2D3748;
+    --siker-szin: #48BB78;
+    --szoveg-szin: #2D3748;
+    --szoveg-vilagos: #718096;
+    --arnyek: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --atmenet: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--szoveg-szin);
+    background-color: #fff;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.kontener {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.betolto-animacio {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--fo-szin), var(--masodlagos-szin));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.betolto-animacio.eltunik {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.betolto-tartalom {
+    text-align: center;
+    color: white;
+}
+
+.betolto-logo {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: pulsalo 2s infinite;
+}
+
+.betolto-szoveg {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.betolto-progress {
+    width: 200px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.betolto-progress-bar {
+    height: 100%;
+    background: white;
+    width: 0%;
+    animation: betoltoProgress 2s ease-in-out;
+}
+
+@keyframes pulsalo {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes betoltoProgress {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+header {
+    background-color: white;
+    box-shadow: var(--arnyek);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.5s ease;
+}
+
+.fejlec-kontener {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-ikon {
+    font-size: 2rem;
+    color: var(--fo-szin);
+    margin-right: 10px;
+    transition: color 0.5s ease;
+}
+
+.logo-szoveg {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--fo-szin);
+    transition: color 0.5s ease;
+}
+
+.logo-szoveg span {
+    color: var(--masodlagos-szin);
+    transition: color 0.5s ease;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--sotet-szin);
+    font-weight: 600;
+    transition: var(--atmenet);
+    padding: 5px 0;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--fo-szin);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--fo-szin);
+    transition: var(--atmenet);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.navigacio-cta {
+    background-color: var(--kiemelo-szin);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+.navigacio-cta:hover {
+    background-color: #e55a2b;
+    color: white;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.hero {
+    background: linear-gradient(rgba(46, 139, 87, 0.8), rgba(30, 107, 78, 0.8)), url('https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    transition: background 0.5s ease;
+}
+
+.hero-tartalom {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-gombok {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gomb {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--atmenet);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.fo-gomb {
+    background-color: var(--kiemelo-szin);
+    color: white;
+}
+
+.fo-gomb:hover {
+    background-color: #e55a2b;
+    transform: translateY(-2px);
+}
+
+.masodlagos-gomb {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.masodlagos-gomb:hover {
+    background-color: white;
+    color: var(--sotet-szin);
+}
+
+.szekcio-cim {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--fo-szin);
+    position: relative;
+    transition: color 0.5s ease;
+}
+
+.szekcio-cim::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--kiemelo-szin);
+    transition: background-color 0.5s ease;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.misszio {
+    background-color: var(--vilagos-szin);
+    transition: background-color 0.5s ease;
+}
+
+.misszio-tartalom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.misszio-szoveg p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    transition: color 0.5s ease;
+}
+
+.misszio-statisztikak {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.statisztika {
+    text-align: center;
+}
+
+.statisztika-szam {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--fo-szin);
+    margin-bottom: 5px;
+    transition: color 0.5s ease;
+}
+
+.statisztika-cimke {
+    color: var(--szoveg-vilagos);
+    font-size: 0.9rem;
+    transition: color 0.5s ease;
+}
+
+.misszio-kep img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: var(--arnyek);
+}
+
+.programok-racs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.program-kartya {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: var(--arnyek);
+    text-align: center;
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.program-kartya:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.program-ikon {
+    font-size: 2.5rem;
+    color: var(--fo-szin);
+    margin-bottom: 20px;
+    transition: color 0.5s ease;
+}
+
+.program-kartya h3 {
+    margin-bottom: 15px;
+    color: var(--sotet-szin);
+    font-size: 1.2rem;
+    transition: color 0.5s ease;
+}
+
+.program-kartya p {
+    margin-bottom: 20px;
+    color: var(--szoveg-vilagos);
+    flex-grow: 1;
+    transition: color 0.5s ease;
+}
+
+.program-mutatok {
+    display: flex;
+    justify-content: space-around;
+    margin-top: auto;
+}
+
+.mutato {
+    text-align: center;
+}
+
+.mutato-ertek {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--fo-szin);
+    transition: color 0.5s ease;
+}
+
+.mutato-cimke {
+    font-size: 0.8rem;
+    color: var(--szoveg-vilagos);
+    transition: color 0.5s ease;
+}
+
+.hirek {
+    background-color: var(--vilagos-szin);
+    transition: background-color 0.5s ease;
+}
+
+.hirek-racs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.hir-kartya {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--arnyek);
+    transition: all 0.5s ease;
+}
+
+.hir-kartya:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hir-kep {
+    height: 200px;
+    overflow: hidden;
+}
+
+.hir-kep img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--atmenet);
+}
+
+.hir-kartya:hover .hir-kep img {
+    transform: scale(1.05);
+}
+
+.hir-tartalom {
+    padding: 20px;
+}
+
+.hir-datum {
+    color: var(--szoveg-vilagos);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    display: block;
+    transition: color 0.5s ease;
+}
+
+.hir-tartalom h3 {
+    margin-bottom: 10px;
+    color: var(--sotet-szin);
+    transition: color 0.5s ease;
+}
+
+.hir-tartalom p {
+    margin-bottom: 15px;
+    color: var(--szoveg-vilagos);
+    transition: color 0.5s ease;
+}
+
+.hir-link {
+    color: var(--fo-szin);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: var(--atmenet);
+}
+
+.hir-link:hover {
+    color: var(--kiemelo-szin);
+}
+
+.tamogatas-tartalom {
+    text-align: center;
+}
+
+.tamogatas-leiras {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: color 0.5s ease;
+}
+
+.tamogatas-modok {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.tamogatas-mod {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: var(--arnyek);
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.tamogatas-mod:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.mod-ikon {
+    font-size: 3rem;
+    color: var(--fo-szin);
+    margin-bottom: 20px;
+    transition: color 0.5s ease;
+}
+
+.tamogatas-mod h3 {
+    margin-bottom: 15px;
+    color: var(--sotet-szin);
+    transition: color 0.5s ease;
+}
+
+.tamogatas-mod p {
+    margin-bottom: 20px;
+    color: var(--szoveg-vilagos);
+    transition: color 0.5s ease;
+}
+
+.hirlevel {
+    background: linear-gradient(135deg, var(--fo-szin), var(--masodlagos-szin));
+    color: white;
+    text-align: center;
+    transition: background 0.5s ease;
+}
+
+.hirlevel-tartalom h2 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.hirlevel-tartalom p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hirlevel-urlap {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.hirlevel-urlap input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.5s ease;
+}
+
+.hirlevel-urlap input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--kiemelo-szin);
+}
+
+.lablec {
+    background-color: var(--sotet-szin);
+    color: white;
+    padding: 50px 0 20px;
+    transition: all 0.5s ease;
+}
+
+.lablec-tartalom {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.lablec-resz h3 {
+    margin-bottom: 20px;
+    color: white;
+    transition: color 0.5s ease;
+}
+
+.lablec-resz ul {
+    list-style: none;
+}
+
+.lablec-resz ul li {
+    margin-bottom: 10px;
+}
+
+.lablec-resz ul li a {
+    color: #adb5bd;
+    text-decoration: none;
+    transition: var(--atmenet);
+}
+
+.lablec-resz ul li a:hover {
+    color: white;
+}
+
+.lablec-resz ul li i {
+    margin-right: 10px;
+    width: 20px;
+    color: var(--kiemelo-szin);
+}
+
+.kozossegi-ikonok {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.kozossegi-ikonok a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: var(--atmenet);
+}
+
+.kozossegi-ikonok a:hover {
+    background-color: var(--kiemelo-szin);
+    transform: translateY(-3px);
+}
+
+.lablec-alja {
+    border-top: 1px solid #495057;
+    padding-top: 20px;
+    text-align: center;
+    color: #adb5bd;
+    transition: color 0.5s ease;
+}
+
+.ejszakai-mod-gomb {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--fo-szin);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    box-shadow: var(--arnyek);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.ejszakai-mod-gomb:hover {
+    transform: scale(1.1) rotate(15deg);
+    background: var(--masodlagos-szin);
+}
+
+.ejszakai-mod-gomb:active {
+    transform: scale(0.95);
+}
+
+.atvaltas-animacio {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    pointer-events: none;
+}
+
+.atvaltas-animacio.sotetre {
+    animation: sotetules 1.1s ease-in-out;
+}
+
+.atvaltas-animacio.vilagosra {
+    animation: vilagosodas 1.1s ease-in-out;
+}
+
+@keyframes sotetules {
+    0% {
+        background: transparent;
+        clip-path: circle(0% at 95% 95%);
+    }
+    50% {
+        background: rgba(0, 0, 0, 0.9);
+        clip-path: circle(150% at 95% 95%);
+    }
+    100% {
+        background: transparent;
+        clip-path: circle(0% at 95% 95%);
+    }
+}
+
+@keyframes vilagosodas {
+    0% {
+        background: transparent;
+        clip-path: circle(0% at 95% 95%);
+    }
+    50% {
+        background: rgba(255, 255, 255, 0.9);
+        clip-path: circle(150% at 95% 95%);
+    }
+    100% {
+        background: transparent;
+        clip-path: circle(0% at 95% 95%);
+    }
+}
+
+.ejszakai-mod-gomb.aktiv {
+    animation: gombPulzalo 0.6s ease;
+}
+
+@keyframes gombPulzalo {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+body.ejszakai-mod {
+    --vilagos-szin: #0f172a;
+    --sotet-szin: #1e293b;
+    --szoveg-szin: #f1f5f9;
+    --szoveg-vilagos: #94a3b8;
+    --fo-szin: #3b82f6;
+    --masodlagos-szin: #2563eb;
+    --kiemelo-szin: #f59e0b;
+    background-color: #0f172a;
+    color: var(--szoveg-szin);
+}
+
+
+body.ejszakai-mod header {
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #334155;
+}
+
+body.ejszakai-mod .logo-szoveg {
+    color: var(--szoveg-szin);
+}
+
+body.ejszakai-mod .logo-ikon {
+    color: var(--fo-szin);
+}
+
+body.ejszakai-mod nav ul li a {
+    color: var(--szoveg-szin);
+}
+
+body.ejszakai-mod nav ul li a:hover {
+    color: var(--fo-szin);
+}
+
+body.ejszakai-mod .navigacio-cta {
+    background-color: var(--fo-szin);
+    color: white;
+}
+
+body.ejszakai-mod .navigacio-cta:hover {
+    background-color: var(--masodlagos-szin);
+}
+
+body.ejszakai-mod .hero {
+    background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.9)), url('https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+}
+
+body.ejszakai-mod .misszio,
+body.ejszakai-mod .hirek {
+    background-color: var(--vilagos-szin);
+}
+
+body.ejszakai-mod .program-kartya,
+body.ejszakai-mod .hir-kartya,
+body.ejszakai-mod .tamogatas-mod {
+    background: linear-gradient(145deg, #1e293b, #1a2438);
+    border: 1px solid #334155;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.ejszakai-mod .program-kartya:hover,
+body.ejszakai-mod .hir-kartya:hover,
+body.ejszakai-mod .tamogatas-mod:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    border-color: var(--fo-szin);
+}
+
+body.ejszakai-mod .program-ikon,
+body.ejszakai-mod .mod-ikon {
+    color: var(--fo-szin);
+}
+
+body.ejszakai-mod .program-kartya h3,
+body.ejszakai-mod .hir-tartalom h3,
+body.ejszakai-mod .tamogatas-mod h3 {
+    color: var(--szoveg-szin);
+}
+
+body.ejszakai-mod .program-kartya p,
+body.ejszakai-mod .hir-tartalom p,
+body.ejszakai-mod .tamogatas-mod p {
+    color: var(--szoveg-vilagos);
+}
+
+body.ejszakai-mod .statisztika-szam {
+    color: var(--fo-szin);
+}
+
+body.ejszakai-mod .mutato-ertek {
+    color: var(--fo-szin);
+}
+
+body.ejszakai-mod .hir-datum {
+    color: var(--szoveg-vilagos);
+}
+
+body.ejszakai-mod .hir-link {
+    color: var(--fo-szin);
+}
+
+body.ejszakai-mod .hir-link:hover {
+    color: var(--kiemelo-szin);
+}
+
+body.ejszakai-mod .hirlevel {
+    background: linear-gradient(135deg, var(--fo-szin), var(--masodlagos-szin));
+}
+
+body.ejszakai-mod .hirlevel-urlap input {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--szoveg-szin);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+body.ejszakai-mod .hirlevel-urlap input::placeholder {
+    color: var(--szoveg-vilagos);
+}
+
+body.ejszakai-mod .hirlevel-urlap input:focus {
+    box-shadow: 0 0 0 2px var(--kiemelo-szin);
+    border-color: var(--kiemelo-szin);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+body.ejszakai-mod .masodlagos-gomb {
+    border-color: var(--szoveg-szin);
+    color: var(--szoveg-szin);
+}
+
+body.ejszakai-mod .masodlagos-gomb:hover {
+    background-color: var(--szoveg-szin);
+    color: var(--sotet-szin);
+}
+
+body.ejszakai-mod .fo-gomb {
+    background-color: var(--fo-szin);
+    color: white;
+}
+
+body.ejszakai-mod .fo-gomb:hover {
+    background-color: var(--masodlagos-szin);
+}
+
+body.ejszakai-mod .lablec {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    border-top: 1px solid #334155;
+}
+
+body.ejszakai-mod .lablec-resz h3 {
+    color: var(--szoveg-szin);
+}
+
+body.ejszakai-mod .lablec-resz ul li a {
+    color: var(--szoveg-vilagos);
+}
+
+body.ejszakai-mod .lablec-resz ul li a:hover {
+    color: var(--fo-szin);
+}
+
+body.ejszakai-mod .kozossegi-ikonok a {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--szoveg-vilagos);
+}
+
+body.ejszakai-mod .kozossegi-ikonok a:hover {
+    background-color: var(--fo-szin);
+    color: white;
+    transform: translateY(-3px) scale(1.1);
+}
+
+body.ejszakai-mod .lablec-alja {
+    border-top: 1px solid #334155;
+    color: var(--szoveg-vilagos);
+}
+
+
+body.ejszakai-mod .ejszakai-mod-gomb {
+    background: linear-gradient(135deg, var(--fo-szin), var(--masodlagos-szin));
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+}
+
+body.ejszakai-mod .ejszakai-mod-gomb:hover {
+    background: linear-gradient(135deg, var(--masodlagos-szin), var(--fo-szin));
+    box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
+    transform: scale(1.1) rotate(15deg);
+}
+
+
+@media (max-width: 1024px) {
+    .programok-racs {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        box-shadow: var(--arnyek);
+        padding: 20px 0;
+    }
+    
+    nav ul.mutat {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 0;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 10px 20px;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .misszio-tartalom {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .misszio-statisztikak {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .hero-gombok {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hirlevel-urlap {
+        flex-direction: column;
+    }
+    
+    .szekcio-cim {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .programok-racs {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .ejszakai-mod-gomb {
+        bottom: 70px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    @keyframes sotetules {
+        0% {
+            background: transparent;
+            clip-path: circle(0% at 90% 90%);
+        }
+        50% {
+            background: rgba(0, 0, 0, 0.9);
+            clip-path: circle(150% at 90% 90%);
+        }
+        100% {
+            background: transparent;
+            clip-path: circle(0% at 90% 90%);
+        }
+    }
+    
+    @keyframes vilagosodas {
+        0% {
+            background: transparent;
+            clip-path: circle(0% at 90% 90%);
+        }
+        50% {
+            background: rgba(255, 255, 255, 0.9);
+            clip-path: circle(150% at 90% 90%);
+        }
+        100% {
+            background: transparent;
+            clip-path: circle(0% at 90% 90%);
+        }
+    }
+}
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .szekcio-cim {
+        font-size: 1.8rem;
+    }
+    
+    .program-kartya {
+        padding: 20px 15px;
+    }
+}
